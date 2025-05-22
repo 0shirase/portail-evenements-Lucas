@@ -1,1 +1,69 @@
-/*# sourceMappingURL=main.css.map */
+* {
+  padding: 0;
+  margin: 0;
+}
+
+.jc-end {
+  justify-content: flex-end;
+}
+
+.fd-column {
+  flex-direction: column;
+}
+
+.fl-flex {
+  display: flex;
+}
+
+.jc-sb {
+  justify-content: space-between;
+}
+
+.jc-sa {
+  justify-content: space-around;
+}
+
+.jc-center {
+  justify-content: center;
+}
+
+.jc-end {
+  justify-content: flex-end;
+}
+
+.ai-center {
+  align-items: center;
+}
+
+.ai-end {
+  align-items: flex-end;
+}
+
+.ta-center {
+  text-align: center;
+}
+
+.fw-wrap {
+  flex-wrap: wrap;
+}
+
+#theme {
+  position: absolute;
+}
+
+header {
+  position: relative;
+}
+header h1 {
+  text-align: left;
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  header h1 {
+    text-align: center;
+  }
+}
+@media (min-width: 1025px) and (max-width: 1440px) {
+  header h1 {
+    text-align: center;
+  }
+}/*# sourceMappingURL=main.css.map */
