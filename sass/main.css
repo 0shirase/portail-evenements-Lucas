@@ -128,6 +128,62 @@ p,
 }
 
 .favorite-icon {
+  position: relative;
+  cursor: pointer;
+}
+
+.mini-star {
+  position: absolute;
+  color: gold;
+  font-size: 0.6rem;
+  top: 50%;
+  left: 50%;
+  transform-origin: center;
+  animation: miniStarAnim 0.6s ease forwards;
+  pointer-events: none;
+}
+
+.mini-star:nth-child(1) {
+  animation-delay: 0s;
+  --x: -20px;
+  --y: -30px;
+}
+
+.mini-star:nth-child(2) {
+  animation-delay: 0.1s;
+  --x: 15px;
+  --y: -25px;
+}
+
+.mini-star:nth-child(3) {
+  animation-delay: 0.15s;
+  --x: 25px;
+  --y: 10px;
+}
+
+.mini-star:nth-child(4) {
+  animation-delay: 0.2s;
+  --x: -15px;
+  --y: 20px;
+}
+
+.mini-star:nth-child(5) {
+  animation-delay: 0.25s;
+  --x: 10px;
+  --y: 30px;
+}
+
+@keyframes miniStarAnim {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--x), var(--y)) scale(1.5);
+  }
+}
+.favorite-icon {
   color: #f5a623;
   position: absolute;
   right: 20px;
