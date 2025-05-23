@@ -182,6 +182,10 @@ body {
   }
 }
 
+body.dark {
+  background-color: #292f36;
+}
+
 main h2 {
   text-align: center;
 }
@@ -223,7 +227,7 @@ main h2 {
 }
 
 .modal-content {
-  background: white;
+  background: #f7fff7;
   padding: 2rem;
   border-radius: 8px;
   width: 90%;

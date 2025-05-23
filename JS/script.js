@@ -1,10 +1,13 @@
+//Call others .js files
 import { getEvents } from "./api.js";
 import { openModal, setupModalListeners } from "./modal.js";
+import { setCookie, getCookie } from "./cookies.js";
 
 document.addEventListener("DOMContentLoaded", async () => {
   const events = await getEvents();
   const container = document.getElementById("event-list");
 
+  //Event creation
   events.forEach((event) => {
     const eventElement = document.createElement("article");
     eventElement.classList.add("event");
@@ -55,4 +58,20 @@ document.addEventListener("DOMContentLoaded", async () => {
 
   //functions listener call
   setupModalListeners();
+  console.log(getCookie);
+
+  const themeButton = document.getElementById("theme");
+  const body = document.body;
+
+  // Apply dark theme if cookie exists
+  const savedTheme = getCookie("theme");
+  if (savedTheme === "dark") {
+    body.classList.add("dark");
+  }
+
+  // toggle theme and save cookie
+  themeButton.addEventListener("click", () => {
+    const isDark = body.classList.toggle("dark");
+    setCookie("theme", isDark ? "dark" : "light");
+  });
 });
