@@ -1,0 +1,24 @@
+body {
+  max-width: 1440px;
+  @include respond-to(mobile) {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+}
+
+main h2 {
+  text-align: center;
+}
+
+//main
+#event-list {
+  @include respond-to(mobile) {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    align-items: center;
+    margin-top: 25px;
+    margin-bottom: 25px;
+  }
+}

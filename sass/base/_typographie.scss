@@ -1,22 +1,22 @@
 // Mobile-first
 h1 {
-  font-size: 36px;
-}
-
-h2 {
   font-size: 32px;
 }
 
-h3 {
+h2 {
   font-size: 26px;
+}
+
+h3 {
+  font-size: 20px;
 }
 
 p,
 .text {
-  font-size: 20px;
+  font-size: 16px;
 }
 
-// Tablette & desktop
+// Tablette
 @include respond-to(tablet) {
   h1 {
     font-size: 46px;
@@ -36,7 +36,28 @@ p,
   }
 }
 
+//desktop
 @include respond-to(desktop) {
+  h1 {
+    font-size: 46px;
+  }
+
+  h2 {
+    font-size: 40px;
+  }
+
+  h3 {
+    font-size: 36px;
+  }
+
+  p,
+  .text {
+    font-size: 30px;
+  }
+}
+
+//1440 px
+@include respond-to(large) {
   h1 {
     font-size: 46px;
   }

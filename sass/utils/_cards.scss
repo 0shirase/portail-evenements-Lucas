@@ -1,0 +1,17 @@
+.event {
+  background-color: $dark-color;
+  width: 75%;
+  padding: 30px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  position: relative;
+  h3 {
+    color: $primary-color;
+    text-align: center;
+  }
+  p {
+    color: $secondary-color;
+  }
+}

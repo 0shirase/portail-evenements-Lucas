@@ -4,20 +4,20 @@
 }
 
 h1 {
-  font-size: 36px;
-}
-
-h2 {
   font-size: 32px;
 }
 
-h3 {
+h2 {
   font-size: 26px;
+}
+
+h3 {
+  font-size: 20px;
 }
 
 p,
 .text {
-  font-size: 20px;
+  font-size: 16px;
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
@@ -35,7 +35,22 @@ p,
     font-size: 30px;
   }
 }
-@media (min-width: 1025px) and (max-width: 1440px) {
+@media (min-width: 1024px) and (max-width: 1440px) {
+  h1 {
+    font-size: 46px;
+  }
+  h2 {
+    font-size: 40px;
+  }
+  h3 {
+    font-size: 36px;
+  }
+  p,
+  .text {
+    font-size: 30px;
+  }
+}
+@media (min-width: 1440px) {
   h1 {
     font-size: 46px;
   }
@@ -94,8 +109,43 @@ p,
   flex-wrap: wrap;
 }
 
+.event {
+  background-color: #292f36;
+  width: 75%;
+  padding: 30px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  position: relative;
+}
+.event h3 {
+  color: #4ecdc4;
+  text-align: center;
+}
+.event p {
+  color: #f5a623;
+}
+
+.favorite-icon {
+  color: #f5a623;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+
 #theme {
   position: absolute;
+}
+
+.details-button {
+  width: 25%;
+  border: solid 2px;
+  border-radius: 12px;
+  padding: 4px;
+  position: absolute;
+  right: 40px;
+  bottom: 10px;
 }
 
 header {
@@ -103,14 +153,79 @@ header {
 }
 header h1 {
   text-align: left;
+  color: #4ecdc4;
 }
 @media (min-width: 768px) and (max-width: 1024px) {
   header h1 {
     text-align: center;
   }
 }
-@media (min-width: 1025px) and (max-width: 1440px) {
+@media (min-width: 1024px) and (max-width: 1440px) {
   header h1 {
     text-align: center;
   }
+}
+@media (min-width: 1440px) {
+  header h1 {
+    text-align: center;
+  }
+}
+
+body {
+  max-width: 1440px;
+}
+@media (max-width: 768px) {
+  body {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+  }
+}
+
+main h2 {
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  #event-list {
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
+    align-items: center;
+    margin-top: 25px;
+    margin-bottom: 25px;
+  }
+}
+
+.hidden {
+  display: none;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0.9);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+}
+
+.modal.active {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+}
+
+.modal-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
 }/*# sourceMappingURL=main.css.map */

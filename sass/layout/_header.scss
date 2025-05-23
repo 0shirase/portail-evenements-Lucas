@@ -3,10 +3,14 @@ header {
 
   h1 {
     text-align: left;
+    color: $primary-color;
     @include respond-to(tablet) {
       text-align: center;
     }
     @include respond-to(desktop) {
+      text-align: center;
+    }
+    @include respond-to(large) {
       text-align: center;
     }
   }
