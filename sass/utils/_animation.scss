@@ -1,9 +1,14 @@
-//stars Animation
+//favstars Animation
 .favorite-icon {
   position: relative;
   cursor: pointer;
+  transition: transform 0.2s ease;
 }
 
+.favorite-icon:hover {
+  transform: scale(1.2);
+}
+//miniStars on click
 .mini-star {
   position: absolute;
   color: $secondary-color;
@@ -41,6 +46,14 @@
   --y: 30px;
 }
 
+.delete-icon {
+  transition: transform 0.2s ease;
+}
+
+.delete-icon:hover {
+  transform: scale(1.2);
+}
+
 //keyFrame
 //stars
 @keyframes miniStarAnim {
@@ -53,5 +66,3 @@
     transform: translate(var(--x), var(--y)) scale(1.5);
   }
 }
-
-//loader

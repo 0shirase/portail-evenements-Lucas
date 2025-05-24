@@ -4,6 +4,7 @@
   right: 55px;
   color: black;
   transition: color 0.3s ease;
+  cursor: pointer;
 }
 
 .details-button {
@@ -11,7 +12,13 @@
   border: solid 2px;
   border-radius: 12px;
   padding: 4px;
+
   @include respond-to(desktop) {
     width: 45%;
   }
+}
+
+.details-button:hover {
+  cursor: pointer;
+  background-color: $tertirary-color;
 }
