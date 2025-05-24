@@ -14,4 +14,7 @@
   p {
     color: $secondary-color;
   }
+  @include respond-to(tablet) {
+    width: 40%;
+  }
 }

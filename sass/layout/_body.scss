@@ -5,10 +5,16 @@ body {
     flex-direction: column;
     gap: 40px;
   }
+  @include respond-to(tablet);
+  display: flex;
+  flex-direction: column;
 }
 
 body.dark {
   background-color: $dark-color;
+  #theme i {
+    color: $tertirary-color;
+  }
 }
 
 main h2 {
@@ -24,5 +30,27 @@ main h2 {
     align-items: center;
     margin-top: 25px;
     margin-bottom: 25px;
+  }
+  @include respond-to(tablet) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+}
+
+#planning-list {
+  @include respond-to(mobile) {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2em;
+    margin-top: 25px;
+  }
+  @include respond-to(tablet) {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
   }
 }

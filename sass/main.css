@@ -22,17 +22,17 @@ p,
 
 @media (min-width: 768px) and (max-width: 1024px) {
   h1 {
-    font-size: 46px;
+    font-size: 42px;
   }
   h2 {
-    font-size: 40px;
+    font-size: 38px;
   }
   h3 {
-    font-size: 36px;
+    font-size: 32px;
   }
   p,
   .text {
-    font-size: 30px;
+    font-size: 26px;
   }
 }
 @media (min-width: 1024px) and (max-width: 1440px) {
@@ -126,6 +126,11 @@ p,
 .event p {
   color: #f5a623;
 }
+@media (min-width: 768px) and (max-width: 1024px) {
+  .event {
+    width: 40%;
+  }
+}
 
 .favorite-icon {
   position: relative;
@@ -190,22 +195,32 @@ p,
   top: 20px;
 }
 
+.delete-icon {
+  cursor: pointer;
+  color: #f7fff7;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+
 #theme {
   position: absolute;
+  top: 20px;
+  right: 55px;
+  color: black;
+  transition: color 0.3s ease;
 }
 
 .details-button {
-  width: 25%;
+  width: 35%;
   border: solid 2px;
   border-radius: 12px;
   padding: 4px;
-  position: absolute;
-  right: 40px;
-  bottom: 10px;
 }
 
 header {
   position: relative;
+  display: flex;
 }
 header h1 {
   text-align: left;
@@ -229,6 +244,8 @@ header h1 {
 
 body {
   max-width: 1440px;
+  display: flex;
+  flex-direction: column;
 }
 @media (max-width: 768px) {
   body {
@@ -237,9 +254,11 @@ body {
     gap: 40px;
   }
 }
-
 body.dark {
   background-color: #292f36;
+}
+body.dark #theme i {
+  color: #ffe66d;
 }
 
 main h2 {
@@ -254,6 +273,32 @@ main h2 {
     align-items: center;
     margin-top: 25px;
     margin-bottom: 25px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  #event-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  #planning-list {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2em;
+    margin-top: 25px;
+  }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  #planning-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
   }
 }
 

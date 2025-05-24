@@ -19,20 +19,20 @@ p,
 // Tablette
 @include respond-to(tablet) {
   h1 {
-    font-size: 46px;
+    font-size: 42px;
   }
 
   h2 {
-    font-size: 40px;
+    font-size: 38px;
   }
 
   h3 {
-    font-size: 36px;
+    font-size: 32px;
   }
 
   p,
   .text {
-    font-size: 30px;
+    font-size: 26px;
   }
 }
 
