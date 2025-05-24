@@ -11,4 +11,7 @@
   border: solid 2px;
   border-radius: 12px;
   padding: 4px;
+  @include respond-to(desktop) {
+    width: 45%;
+  }
 }

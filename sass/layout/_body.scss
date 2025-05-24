@@ -39,6 +39,10 @@ main h2 {
     flex-wrap: wrap;
     justify-content: center;
   }
+  @include respond-to(large) {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 }
 
 #planning-list {

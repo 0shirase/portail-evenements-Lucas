@@ -3,6 +3,11 @@
   margin: 0;
 }
 
+html {
+  display: flex;
+  justify-content: center;
+}
+
 h1 {
   font-size: 32px;
 }
@@ -136,6 +141,11 @@ p,
     width: 20%;
   }
 }
+@media (min-width: 1440px) {
+  .event {
+    width: 25%;
+  }
+}
 
 .event.dark {
   background-color: #f7fff7;
@@ -235,6 +245,11 @@ p,
   border-radius: 12px;
   padding: 4px;
 }
+@media (min-width: 1024px) and (max-width: 1440px) {
+  .details-button {
+    width: 45%;
+  }
+}
 
 header {
   position: relative;
@@ -301,6 +316,12 @@ main h2 {
   }
 }
 @media (min-width: 1024px) and (max-width: 1440px) {
+  #event-list {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+@media (min-width: 1440px) {
   #event-list {
     flex-wrap: wrap;
     justify-content: center;
