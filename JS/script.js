@@ -32,10 +32,14 @@ document.addEventListener("DOMContentLoaded", async () => {
     favStar.className = "fa-regular fa-star favorite-icon";
     favStar.dataset.id = event.id;
     favStar.title = "Ajouter à mon planning";
+    favStar.setAttribute("aria-label", "Ajouter cet événement à mon planning");
+    favStar.setAttribute("role", "button");
+    favStar.setAttribute("tabindex", "0");
 
     if (isEventInPlanning(event.id)) {
       favStar.classList.replace("fa-regular", "fa-solid");
       favStar.title = "Déjà dans le planning";
+      favStar.setAttribute("aria-label", "Événement déjà dans le planning");
     }
 
     favStar.addEventListener("click", () => {
@@ -43,6 +47,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       if (addEventToPlanning(event)) {
         favStar.classList.replace("fa-regular", "fa-solid");
         favStar.title = "Déjà dans le planning";
+        favStar.setAttribute("aria-label", "Événement déjà dans le planning");
         renderPlanning();
       }
     });
@@ -51,6 +56,12 @@ document.addEventListener("DOMContentLoaded", async () => {
     detailsButton.classList.add("details-button");
     detailsButton.dataset.id = event.id;
     detailsButton.textContent = "Voir les détails";
+    detailsButton.setAttribute(
+      "aria-label",
+      `Voir les détails de l'événement ${event.title}`
+    );
+    detailsButton.setAttribute("role", "button");
+    detailsButton.setAttribute("tabindex", "0");
     detailsButton.addEventListener("click", () => openModal(event));
 
     // AppendCHild Events
@@ -65,6 +76,9 @@ document.addEventListener("DOMContentLoaded", async () => {
   // Darktheme
   const themeButton = document.getElementById("theme");
   const body = document.body;
+  themeButton.setAttribute("aria-label", "Changer le thème clair/sombre");
+  themeButton.setAttribute("role", "button");
+  themeButton.setAttribute("tabindex", "0");
   if (getCookie("theme") === "dark") {
     body.classList.add("dark");
   }
@@ -139,6 +153,13 @@ function renderPlanning() {
 
     const trash = document.createElement("i");
     trash.className = "fa-solid fa-trash delete-icon";
+    trash.title = "Retirer du planning";
+    trash.setAttribute(
+      "aria-label",
+      `Retirer l'événement ${event.title} du planning`
+    );
+    trash.setAttribute("role", "button");
+    trash.setAttribute("tabindex", "0");
     trash.addEventListener("click", () => {
       removeEventFromPlanning(event.id);
       renderPlanning();
@@ -150,12 +171,20 @@ function renderPlanning() {
         eventStar.classList.remove("fa-solid");
         eventStar.classList.add("fa-regular");
         eventStar.title = "Ajouter à mon planning";
+        eventStar.setAttribute(
+          "aria-label",
+          "Ajouter cet événement à mon planning"
+        );
       }
     });
 
     const detailsButton = document.createElement("button");
     detailsButton.classList.add("details-button");
     detailsButton.textContent = "Voir les détails";
+    detailsButton.setAttribute(
+      "aria-label",
+      `Voir les détails de l'événement ${event.title}`
+    );
     detailsButton.addEventListener("click", () => openModal(event));
 
     article.append(title, date, location, detailsButton, trash);

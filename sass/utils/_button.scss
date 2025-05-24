@@ -26,3 +26,7 @@
   cursor: pointer;
   background-color: $tertirary-color;
 }
+
+.details-button:focus {
+  background-color: $tertirary-color;
+}

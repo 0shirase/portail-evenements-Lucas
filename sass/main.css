@@ -276,6 +276,10 @@ p,
   background-color: #ffe66d;
 }
 
+.details-button:focus {
+  background-color: #ffe66d;
+}
+
 header {
   position: relative;
 }
