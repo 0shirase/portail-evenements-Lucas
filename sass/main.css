@@ -1,1 +1,418 @@
-/*# sourceMappingURL=main.css.map */
+* {
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  display: flex;
+  justify-content: center;
+}
+
+h1 {
+  font-size: 32px;
+}
+
+h2 {
+  font-size: 26px;
+}
+
+h3 {
+  font-size: 20px;
+}
+
+p,
+.text {
+  font-size: 16px;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  h1 {
+    font-size: 42px;
+  }
+  h2 {
+    font-size: 38px;
+  }
+  h3 {
+    font-size: 32px;
+  }
+  p,
+  .text {
+    font-size: 26px;
+  }
+}
+@media (min-width: 1024px) and (max-width: 1440px) {
+  h1 {
+    font-size: 46px;
+  }
+  h2 {
+    font-size: 40px;
+  }
+  h3 {
+    font-size: 36px;
+  }
+  p,
+  .text {
+    font-size: 30px;
+  }
+}
+@media (min-width: 1440px) {
+  h1 {
+    font-size: 46px;
+  }
+  h2 {
+    font-size: 40px;
+  }
+  h3 {
+    font-size: 36px;
+  }
+  p,
+  .text {
+    font-size: 30px;
+  }
+}
+.jc-end {
+  justify-content: flex-end;
+}
+
+.fd-column {
+  flex-direction: column;
+}
+
+.fl-flex {
+  display: flex;
+}
+
+.jc-sb {
+  justify-content: space-between;
+}
+
+.jc-sa {
+  justify-content: space-around;
+}
+
+.jc-center {
+  justify-content: center;
+}
+
+.jc-end {
+  justify-content: flex-end;
+}
+
+.ai-center {
+  align-items: center;
+}
+
+.ai-end {
+  align-items: flex-end;
+}
+
+.ta-center {
+  text-align: center;
+}
+
+.fw-wrap {
+  flex-wrap: wrap;
+}
+
+.event {
+  background-color: #292f36;
+  width: 75%;
+  padding: 30px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 3em;
+  position: relative;
+  background-color: #292f36;
+  color: #f7fff7;
+}
+.event h3 {
+  color: #4ecdc4;
+  text-align: center;
+}
+.event p {
+  color: #f5a623;
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  .event {
+    width: 40%;
+  }
+}
+@media (min-width: 1024px) and (max-width: 1440px) {
+  .event {
+    width: 20%;
+  }
+}
+@media (min-width: 1440px) {
+  .event {
+    width: 25%;
+  }
+}
+
+.favorite-icon {
+  position: relative;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.favorite-icon:hover {
+  transform: scale(1.2);
+}
+
+.mini-star {
+  position: absolute;
+  color: #f5a623;
+  font-size: 0.6rem;
+  top: 50%;
+  left: 50%;
+  transform-origin: center;
+  animation: miniStarAnim 0.6s ease forwards;
+  pointer-events: none;
+}
+
+.mini-star:nth-child(1) {
+  animation-delay: 0s;
+  --x: -20px;
+  --y: -30px;
+}
+
+.mini-star:nth-child(2) {
+  animation-delay: 0.1s;
+  --x: 15px;
+  --y: -25px;
+}
+
+.mini-star:nth-child(3) {
+  animation-delay: 0.15s;
+  --x: 25px;
+  --y: 10px;
+}
+
+.mini-star:nth-child(4) {
+  animation-delay: 0.2s;
+  --x: -15px;
+  --y: 20px;
+}
+
+.mini-star:nth-child(5) {
+  animation-delay: 0.25s;
+  --x: 10px;
+  --y: 30px;
+}
+
+.delete-icon {
+  transition: transform 0.2s ease;
+}
+
+.delete-icon:hover {
+  transform: scale(1.2);
+}
+
+@keyframes miniStarAnim {
+  0% {
+    opacity: 1;
+    transform: translate(0, 0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--x), var(--y)) scale(1.5);
+  }
+}
+.favorite-icon {
+  color: #f5a623;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+
+.delete-icon {
+  cursor: pointer;
+  color: #f7fff7;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+
+#close-modal {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.fa-xmark {
+  font-size: 1.55em;
+}
+
+.fa-xmark:hover {
+  cursor: pointer;
+}
+
+#theme {
+  position: absolute;
+  top: 20px;
+  right: 55px;
+  color: black;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+.details-button {
+  width: 35%;
+  border: solid 2px;
+  border-radius: 12px;
+  padding: 4px;
+  background-color: #f7fff7;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+}
+@media (min-width: 1024px) and (max-width: 1440px) {
+  .details-button {
+    width: 45%;
+  }
+}
+
+.details-button:hover {
+  cursor: pointer;
+  background-color: #ffe66d;
+}
+
+.details-button:focus {
+  background-color: #ffe66d;
+}
+
+header {
+  position: relative;
+}
+header h1 {
+  text-align: left;
+  color: #4ecdc4;
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  header h1 {
+    text-align: center;
+  }
+}
+@media (min-width: 1024px) and (max-width: 1440px) {
+  header h1 {
+    text-align: center;
+  }
+}
+@media (min-width: 1440px) {
+  header h1 {
+    text-align: center;
+  }
+}
+
+body {
+  max-width: 1440px;
+  background-color: #f7fff7;
+  display: flex;
+  flex-direction: column;
+  gap: 3em;
+}
+
+main h2 {
+  text-align: center;
+}
+
+#event-list {
+  display: flex;
+  gap: 2em;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
+@media (max-width: 768px) {
+  #event-list {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+@media (min-width: 768px) and (max-width: 1024px) {
+  #event-list {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+@media (min-width: 1024px) and (max-width: 1440px) {
+  #event-list {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+@media (min-width: 1440px) {
+  #event-list {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+}
+
+#planning-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2em;
+  margin-top: 25px;
+}
+
+.hidden {
+  display: none;
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  -webkit-backdrop-filter: blur(10px);
+          backdrop-filter: blur(10px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  opacity: 0;
+  visibility: hidden;
+  transform: scale(0.9);
+  transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+}
+
+.modal.active {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+}
+
+.modal-content {
+  background: #f7fff7;
+  padding: 2rem;
+  border-radius: 8px;
+  width: 90%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  position: relative;
+}
+
+body.dark .event {
+  background-color: #f7fff7;
+  color: #292f36;
+}
+
+body.dark {
+  background-color: #292f36;
+}
+
+body.dark h2 {
+  color: #f7fff7;
+}
+
+body.dark .modal-content {
+  background-color: #292f36;
+  color: #f7fff7;
+}
+
+body.dark .event .delete-icon {
+  color: #292f36;
+}
+
+body.dark #theme {
+  color: #ffe66d;
+}/*# sourceMappingURL=main.css.map */

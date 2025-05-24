@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/1800d6449f.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./sass/main.css">
+    <script type="module" src="./JS/script.js" defer></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <header>
+        <div>
+            <h1>SYNERGIA</h1>
+
+            <i class="fa-solid fa-lightbulb" id="theme"></i>
+
+        </div>
+    </header>
+    <main>
+        <h2>Evénements Association</h2>
+        <section id="event-list"></section>
+        <section id="my-planning">
+            <h2>Mon planning</h2>
+            <div id="planning-list"></div>
+        </section>
+    </main>
+    <div id="event-modal" class="modal hidden">
+        <div class="modal-content">
+            <i class="fa-solid fa-xmark" id="close-modal" aria-label="Fermeture de la fenêtre Modale" role="button"></i>
+            <h2 id="modal-title"></h2>
+            <p id="modal-datetime"></p>
+            <p id="modal-location"></p>
+            <p id="modal-description"></p>
+            <a id="modal-link" href="#">Voir la source</a>
+        </div>
+    </div>
+</body>
+
+</html>

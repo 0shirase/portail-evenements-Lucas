@@ -1,0 +1,20 @@
+//mixins responsive
+@mixin respond-to($device) {
+  @if $device == mobile {
+    @media (max-width: #{$breakpoint-mobile}) {
+      @content;
+    }
+  } @else if $device == tablet {
+    @media (min-width: #{$breakpoint-mobile}) and (max-width: #{$breakpoint-tablet}) {
+      @content;
+    }
+  } @else if $device == desktop {
+    @media (min-width: #{$breakpoint-tablet}) and (max-width: #{$breakpoint-max}) {
+      @content;
+    }
+  } @else if $device == large {
+    @media (min-width: #{$breakpoint-max}) {
+      @content;
+    }
+  }
+}

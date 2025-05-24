@@ -1,0 +1,28 @@
+.event {
+  background-color: $dark-color;
+  width: 75%;
+  padding: 30px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 3em;
+  position: relative;
+  background-color: $dark-color;
+  color: $clear-color;
+  h3 {
+    color: $primary-color;
+    text-align: center;
+  }
+  p {
+    color: $secondary-color;
+  }
+  @include respond-to(tablet) {
+    width: 40%;
+  }
+  @include respond-to(desktop) {
+    width: 20%;
+  }
+  @include respond-to(large) {
+    width: 25%;
+  }
+}

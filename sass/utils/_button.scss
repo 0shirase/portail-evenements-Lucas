@@ -1,0 +1,32 @@
+#theme {
+  position: absolute;
+  top: 20px;
+  right: 55px;
+  color: black;
+  transition: color 0.3s ease;
+  cursor: pointer;
+}
+
+.details-button {
+  width: 35%;
+  border: solid 2px;
+  border-radius: 12px;
+  padding: 4px;
+  background-color: $clear-color;
+  display: flex;
+  justify-content: center;
+  align-self: center;
+
+  @include respond-to(desktop) {
+    width: 45%;
+  }
+}
+
+.details-button:hover {
+  cursor: pointer;
+  background-color: $tertirary-color;
+}
+
+.details-button:focus {
+  background-color: $tertirary-color;
+}

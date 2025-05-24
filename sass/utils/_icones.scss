@@ -1,0 +1,26 @@
+.favorite-icon {
+  color: $secondary-color;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+
+.delete-icon {
+  cursor: pointer;
+  color: $clear-color;
+  position: absolute;
+  right: 20px;
+  top: 20px;
+}
+
+#close-modal {
+  display: flex;
+  justify-content: flex-end;
+}
+.fa-xmark {
+  font-size: 1.55em;
+}
+
+.fa-xmark:hover {
+  cursor: pointer;
+}
