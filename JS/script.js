@@ -1,140 +1,125 @@
-//Call others .js files
+// Imports
 import { getEvents } from "./api.js";
 import { openModal, setupModalListeners } from "./modal.js";
 import { setCookie, getCookie } from "./cookies.js";
 
+// Events Articles
 document.addEventListener("DOMContentLoaded", async () => {
   const events = await getEvents();
   const container = document.getElementById("event-list");
-  /* console.log(events); */
 
-  //Event creation
   events.forEach((event) => {
-    //createElement cards
     const eventElement = document.createElement("article");
     const eventHeader = document.createElement("div");
     const eventTitle = document.createElement("h3");
     const favStar = document.createElement("i");
     const eventDate = document.createElement("p");
     const eventLocation = document.createElement("p");
+    const detailsButton = document.createElement("button");
 
-    //classList add
+    //add API infos in articles
     eventElement.classList.add("event");
     eventHeader.classList.add("event-header");
-
-    //textContent
     eventTitle.textContent = event.title;
-    eventDate.textContent = ` Date et heure: ${new Date(
+    eventDate.textContent = `Date et heure: ${new Date(
       event.start_date
     ).toLocaleString()}`;
-    eventLocation.textContent = ` Lieu: ${
+    eventLocation.textContent = `Lieu: ${
       event.venue?.address || "Lieu non précisé"
     }`;
 
-    //fav event
+    // Stars icon
     favStar.className = "fa-regular fa-star favorite-icon";
     favStar.dataset.id = event.id;
     favStar.title = "Ajouter à mon planning";
 
-    const planning = JSON.parse(localStorage.getItem("planning")) || [];
-    const alreadySaved = planning.some((e) => e.id === event.id);
-    if (alreadySaved) {
-      favStar.classList.remove("fa-regular");
-      favStar.classList.add("fa-solid");
+    if (isEventInPlanning(event.id)) {
+      favStar.classList.replace("fa-regular", "fa-solid");
       favStar.title = "Déjà dans le planning";
     }
-    //appendChild stars
-    eventHeader.appendChild(eventTitle);
-    eventHeader.appendChild(favStar);
-
-    // Button open Modal
-    const button = document.createElement("button");
-    button.classList.add("details-button");
-    button.dataset.id = event.id;
-    button.textContent = "Voir les détails";
-
-    button.addEventListener("click", () => openModal(event));
-
-    // appendChild
-    eventElement.appendChild(eventHeader);
-    eventElement.appendChild(eventDate);
-    eventElement.appendChild(eventLocation);
-    eventElement.appendChild(button);
-    container.appendChild(eventElement);
-
-    //favStar animation
-    favStar.addEventListener("click", () => {
-      favStar.classList.add("vibrate");
-
-      for (let i = 0; i < 7; i++) {
-        const miniStar = document.createElement("i");
-        miniStar.className = "fa-solid fa-star mini-star";
-
-        favStar.appendChild(miniStar);
-
-        miniStar.addEventListener("animationend", () => {
-          miniStar.remove();
-        });
-      }
-    });
-    // myplanning section
-    const planningList = document.getElementById("planning-list");
 
     favStar.addEventListener("click", () => {
-      // Animation
-      favStar.classList.add("vibrate");
-      for (let i = 0; i < 7; i++) {
-        const miniStar = document.createElement("i");
-        miniStar.className = "fa-solid fa-star mini-star";
-        favStar.appendChild(miniStar);
-        miniStar.addEventListener("animationend", () => miniStar.remove());
-      }
-
-      // localStorage my planning
-      const planning = JSON.parse(localStorage.getItem("planning")) || [];
-      const alreadyInPlanning = planning.some((e) => e.id === event.id);
-      if (!alreadyInPlanning) {
-        planning.push(event);
-        localStorage.setItem("planning", JSON.stringify(planning));
+      playStarAnimation(favStar);
+      if (addEventToPlanning(event)) {
+        favStar.classList.replace("fa-regular", "fa-solid");
+        favStar.title = "Déjà dans le planning";
         renderPlanning();
       }
-      // stars on click from regular to solid
-      favStar.classList.remove("fa-regular");
-      favStar.classList.add("fa-solid");
-      favStar.title = "Déjà dans le planning";
     });
+
+    // Modal Buttons
+    detailsButton.classList.add("details-button");
+    detailsButton.dataset.id = event.id;
+    detailsButton.textContent = "Voir les détails";
+    detailsButton.addEventListener("click", () => openModal(event));
+
+    // AppendCHild Events
+    eventHeader.append(eventTitle, favStar);
+    eventElement.append(eventHeader, eventDate, eventLocation, detailsButton);
+    container.appendChild(eventElement);
   });
 
-  //functions listener call
+  renderPlanning();
   setupModalListeners();
 
+  // Darktheme
   const themeButton = document.getElementById("theme");
   const body = document.body;
-
-  // Apply dark theme if cookie exists
-  const savedTheme = getCookie("theme");
-  if (savedTheme === "dark") {
+  if (getCookie("theme") === "dark") {
     body.classList.add("dark");
   }
 
-  // toggle theme and saving cookies
   themeButton.addEventListener("click", () => {
     const isDark = body.classList.toggle("dark");
     setCookie("theme", isDark ? "dark" : "light");
   });
 });
 
-//myplanning function
+// Myplanning
+function getPlanning() {
+  return JSON.parse(localStorage.getItem("planning")) || [];
+}
+
+function savePlanning(planning) {
+  localStorage.setItem("planning", JSON.stringify(planning));
+}
+
+function isEventInPlanning(id) {
+  return getPlanning().some((e) => e.id === id);
+}
+
+function addEventToPlanning(event) {
+  const planning = getPlanning();
+  if (!isEventInPlanning(event.id)) {
+    planning.push(event);
+    savePlanning(planning);
+    return true;
+  }
+  return false;
+}
+
+function removeEventFromPlanning(id) {
+  const updated = getPlanning().filter((e) => e.id !== id);
+  savePlanning(updated);
+}
+
+//  favStars animation
+function playStarAnimation(target) {
+  target.classList.add("vibrate");
+  for (let i = 0; i < 7; i++) {
+    const miniStar = document.createElement("i");
+    miniStar.className = "fa-solid fa-star mini-star";
+    target.appendChild(miniStar);
+    miniStar.addEventListener("animationend", () => miniStar.remove());
+  }
+}
+
+// articles myPlanning
 function renderPlanning() {
   const planningList = document.getElementById("planning-list");
+  planningList.innerHTML = "";
 
-  // article delete
-  const oldArticles = planningList.querySelectorAll("article");
-  oldArticles.forEach((a) => a.remove());
-
-  const planning = JSON.parse(localStorage.getItem("planning")) || [];
-
-  // article myplanning creation
+  const planning = getPlanning();
   planning.forEach((event) => {
     const article = document.createElement("article");
     article.classList.add("event");
@@ -152,13 +137,10 @@ function renderPlanning() {
       event.venue?.address || "Lieu non précisé"
     }`;
 
-    // delete icone + localStorage
     const trash = document.createElement("i");
     trash.className = "fa-solid fa-trash delete-icon";
-
     trash.addEventListener("click", () => {
-      const updatedPlanning = planning.filter((e) => e.id !== event.id);
-      localStorage.setItem("planning", JSON.stringify(updatedPlanning));
+      removeEventFromPlanning(event.id);
       renderPlanning();
 
       const eventStar = document.querySelector(
@@ -171,20 +153,12 @@ function renderPlanning() {
       }
     });
 
-    // button show details myPlanning
     const detailsButton = document.createElement("button");
     detailsButton.classList.add("details-button");
     detailsButton.textContent = "Voir les détails";
     detailsButton.addEventListener("click", () => openModal(event));
 
-    // appendChild planning articles
-    article.appendChild(title);
-    article.appendChild(date);
-    article.appendChild(location);
-    article.appendChild(detailsButton);
-    article.appendChild(trash);
+    article.append(title, date, location, detailsButton, trash);
     planningList.appendChild(article);
   });
 }
-
-renderPlanning();

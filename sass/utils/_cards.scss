@@ -5,8 +5,10 @@
   border-radius: 12px;
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 3em;
   position: relative;
+  background-color: $dark-color;
+  color: $clear-color;
   h3 {
     color: $primary-color;
     text-align: center;
@@ -23,8 +25,4 @@
   @include respond-to(large) {
     width: 25%;
   }
-}
-
-.event.dark {
-  background-color: $clear-color;
 }

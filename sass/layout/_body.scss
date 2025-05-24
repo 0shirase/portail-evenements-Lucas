@@ -1,20 +1,9 @@
 body {
   max-width: 1440px;
-  @include respond-to(mobile) {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-  }
-  @include respond-to(tablet);
+  background-color: $clear-color;
   display: flex;
   flex-direction: column;
-}
-
-body.dark {
-  background-color: $dark-color;
-  #theme i {
-    color: $tertirary-color;
-  }
+  gap: 3em;
 }
 
 main h2 {

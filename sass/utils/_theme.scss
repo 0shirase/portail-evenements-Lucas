@@ -1,0 +1,25 @@
+body.dark .event {
+  background-color: $clear-color;
+  color: $dark-color;
+}
+
+body.dark {
+  background-color: $dark-color;
+}
+
+body.dark h2 {
+  color: $clear-color;
+}
+
+body.dark .modal-content {
+  background-color: $dark-color;
+  color: $clear-color;
+}
+
+body.dark .event .delete-icon {
+  color: $dark-color;
+}
+
+body.dark #theme {
+  color: $tertirary-color;
+}
