@@ -23,34 +23,28 @@ main h2 {
 
 //main
 #event-list {
+  display: flex;
+  gap: 2em;
+  margin-top: 25px;
+  margin-bottom: 25px;
   @include respond-to(mobile) {
-    display: flex;
     flex-direction: column;
-    gap: 2em;
     align-items: center;
-    margin-top: 25px;
-    margin-bottom: 25px;
   }
   @include respond-to(tablet) {
-    display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    justify-content: center;
+  }
+  @include respond-to(desktop) {
+    flex-wrap: wrap;
     justify-content: center;
   }
 }
 
 #planning-list {
-  @include respond-to(mobile) {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 2em;
-    margin-top: 25px;
-  }
-  @include respond-to(tablet) {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-  }
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2em;
+  margin-top: 25px;
 }

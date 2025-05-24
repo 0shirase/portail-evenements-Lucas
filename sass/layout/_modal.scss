@@ -28,4 +28,8 @@
   border-radius: 8px;
   width: 90%;
   max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  position: relative;
 }

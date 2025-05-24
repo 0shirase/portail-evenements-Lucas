@@ -42,4 +42,9 @@ export function setupModalListeners() {
   modal.addEventListener("click", (e) => {
     if (e.target === modal) closeModal();
   });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && modal.classList.contains("active")) {
+      closeModal();
+    }
+  });
 }

@@ -12,3 +12,11 @@
   right: 20px;
   top: 20px;
 }
+
+#close-modal {
+  display: flex;
+  justify-content: flex-end;
+}
+.fa-xmark {
+  font-size: 1.55em;
+}

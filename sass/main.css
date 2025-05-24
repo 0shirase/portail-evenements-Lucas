@@ -131,6 +131,15 @@ p,
     width: 40%;
   }
 }
+@media (min-width: 1024px) and (max-width: 1440px) {
+  .event {
+    width: 20%;
+  }
+}
+
+.event.dark {
+  background-color: #f7fff7;
+}
 
 .favorite-icon {
   position: relative;
@@ -203,6 +212,15 @@ p,
   top: 20px;
 }
 
+#close-modal {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.fa-xmark {
+  font-size: 1.55em;
+}
+
 #theme {
   position: absolute;
   top: 20px;
@@ -220,7 +238,6 @@ p,
 
 header {
   position: relative;
-  display: flex;
 }
 header h1 {
   text-align: left;
@@ -265,41 +282,37 @@ main h2 {
   text-align: center;
 }
 
+#event-list {
+  display: flex;
+  gap: 2em;
+  margin-top: 25px;
+  margin-bottom: 25px;
+}
 @media (max-width: 768px) {
   #event-list {
-    display: flex;
     flex-direction: column;
-    gap: 2em;
     align-items: center;
-    margin-top: 25px;
-    margin-bottom: 25px;
   }
 }
 @media (min-width: 768px) and (max-width: 1024px) {
   #event-list {
-    display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    justify-content: center;
+  }
+}
+@media (min-width: 1024px) and (max-width: 1440px) {
+  #event-list {
+    flex-wrap: wrap;
     justify-content: center;
   }
 }
 
-@media (max-width: 768px) {
-  #planning-list {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 2em;
-    margin-top: 25px;
-  }
-}
-@media (min-width: 768px) and (max-width: 1024px) {
-  #planning-list {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-  }
+#planning-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2em;
+  margin-top: 25px;
 }
 
 .hidden {
@@ -333,4 +346,8 @@ main h2 {
   border-radius: 8px;
   width: 90%;
   max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  position: relative;
 }/*# sourceMappingURL=main.css.map */
